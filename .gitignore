@@ -1,14 +1,25 @@
+# Core Terraform directories
+.terraform/
 
-# Terraform working directory
-**/.terraform/*
+# Hide planning data / log files
+crash.log
+crash.*.log
+*tfplan*
 
-# Terraform state files
+# Ignore all TF state files (Contains secrets, managed remotely instead)
 *.tfstate
 *.tfstate.*
 
-# Terraform crash logs
-crash.log
-crash.*.log
+# Exclude sensitive variable files
+*.tfvars
+*.tfvars.json
 
-# Terraform plan files
-*.tfplan
+# Exclude local override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
