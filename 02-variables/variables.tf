@@ -8,6 +8,15 @@ variable "instance_type" {
   type        = string
   description = "instance type for the EC2 instance"
   default     = "t3.micro"
+
+validation {
+    condition = contains(
+      ["t3.micro", "t3.small", "t3.medium", "t3.large"],
+      var.instance_type
+    )
+
+    error_message = "The environment must be t3.micro or t3.small or t3.medium or t3.large."
+    }
 }
 
 variable "ec2_tags" {
@@ -30,4 +39,3 @@ variable "from_port" {
     type = number
     default = 0
 }     
-#14,24,29 lines has some error correct it
